@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMS — Bank Management System | Ahmed Faheem</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-mark"><span class="dot"></span>ahmed.faheem</a>
+    <div class="nav-links">
+      <a href="index.html">~/home</a>
+      <a href="about.html">about</a>
+      <a href="index.html#projects" class="active">projects</a>
+      <a href="contact.html">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="detail-head">
+  <div class="wrap-narrow">
+    <a class="back-link reveal" href="index.html#projects">← back to projects</a>
+    <div class="detail-title-row reveal">
+      <h1 class="detail-title">BMS</h1>
+      <span class="status-tag status-done">Completed</span>
+    </div>
+    <p class="detail-sub reveal">A console banking application focused on the part every bank interface depends on underneath: a balance and history that stay correct no matter what order things happen in.</p>
+
+    <div class="meta-strip reveal">
+      <div class="meta-item"><span>Role</span><span>Solo developer</span></div>
+      <div class="meta-item"><span>Stack</span><span>C++, OOP, File I/O</span></div>
+      <div class="meta-item"><span>Duration</span><span>May — Jun 2026</span></div>
+      <div class="meta-item"><span>Source</span><span><a href="https://github.com/ahmedmfh164-hash/Bank-Management-System-oop" target="_blank" rel="noopener">github ↗</a></span></div>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:48px;">
+  <div class="wrap-narrow">
+
+    <div class="detail-block reveal">
+      <h2>Why strip away the interface</h2>
+      <p>An app, an ATM, a teller window — every banking front end is a different skin on the same requirement: balances and history have to be accurate and recoverable regardless of the order operations happen in. BMS deliberately has no real interface beyond a console, because the point was to get that underlying requirement right without a UI distracting from it.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h2>Modeling accounts as objects, not rows</h2>
+      <p>The core of the system is two related objects:</p>
+      <div class="schema-grid">
+        <div class="schema-table">
+          <div class="schema-table-head">Account</div>
+          <div class="schema-table-row"><span>accountID</span><em>int</em></div>
+          <div class="schema-table-row"><span>ownerName</span><em>string</em></div>
+          <div class="schema-table-row"><span>balance</span><em>double</em></div>
+        </div>
+        <div class="schema-table">
+          <div class="schema-table-head">Transaction</div>
+          <div class="schema-table-row"><span>accountID</span><em>ref</em></div>
+          <div class="schema-table-row"><span>type</span><em>deposit/withdraw</em></div>
+          <div class="schema-table-row"><span>amount</span><em>double</em></div>
+        </div>
+      </div>
+      <p><b>Encapsulation</b> means balance is never touched directly — only account methods can change it, so every mutation passes through validation. <b>Inheritance and abstraction</b> shape how account behavior is organized, so common logic doesn't get duplicated if more account types are added later.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h2>Persistence without reaching for a database</h2>
+      <p>A console-scale project didn't need a database server, so BMS uses file handling instead — but the goal was the same guarantee a real system needs:</p>
+      <div class="code-block">
+<span class="c1">On exit</span>   <span class="c2">→</span> serialize accounts &amp; transaction log to file<br>
+<span class="c1">On launch</span> <span class="c2">→</span> read file back into memory before accepting input
+      </div>
+      <p>That keeps the project dependency-free while still proving out "never lose a record" — the same requirement a production system would need from its actual database layer.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h2>What I'd do differently now</h2>
+      <p>Flat-file storage works for a console demo, but it has no real transaction safety — a write can be interrupted half-done. Swapping it for SQLite would be the natural next step: dependency-light, but with commits that can't be left in a broken state, which a banking system should have even at this scale.</p>
+    </div>
+
+    <div class="tag-row reveal" style="margin-bottom:8px;">
+      <span class="tag">C++</span>
+      <span class="tag">OOP</span>
+      <span class="tag">File Handling</span>
+      <span class="tag">Console UI</span>
+      <span class="tag">Git</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrap-narrow">
+  <div class="detail-nav">
+    <a href="project-dvld.html">← previous: DVLD</a>
+    <a href="about.html">about me →</a>
+  </div>
+</div>
+
+<footer>
+  ahmed mohamed faheem — junior .net developer
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

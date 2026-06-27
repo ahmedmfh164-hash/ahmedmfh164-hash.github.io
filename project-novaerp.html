@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaERP — Enterprise Resource Planning System | Ahmed Faheem</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-mark"><span class="dot"></span>ahmed.faheem</a>
+    <div class="nav-links">
+      <a href="index.html">~/home</a>
+      <a href="about.html">about</a>
+      <a href="index.html#projects" class="active">projects</a>
+      <a href="contact.html">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="detail-head">
+  <div class="wrap-narrow">
+    <a class="back-link reveal" href="index.html#projects">← back to projects</a>
+    <div class="detail-title-row reveal">
+      <h1 class="detail-title">NovaERP</h1>
+      <span class="status-tag status-progress">In Progress</span>
+    </div>
+    <p class="detail-sub reveal">An ERP backend built on ASP.NET Core, structured around Clean Architecture — my step from desktop tools toward enterprise-style backend systems.</p>
+
+    <div class="meta-strip reveal">
+      <div class="meta-item"><span>Status</span><span>In development</span></div>
+      <div class="meta-item"><span>Role</span><span>Solo developer</span></div>
+      <div class="meta-item"><span>Stack</span><span>ASP.NET Core, EF Core, SQL Server</span></div>
+      <div class="meta-item"><span>Started</span><span>June 2026</span></div>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:48px;">
+  <div class="wrap-narrow">
+
+    <div class="detail-block reveal">
+      <h2>Why this project</h2>
+      <p>DVLD and BMS taught me the fundamentals — schemas, validation, OOP — but both were desktop-bound: a WinForms client or a console session talking directly to its own data layer. That doesn't reflect how most production backends actually work. NovaERP is my attempt to close that gap: a system exposed as a web API, consumed by clients it doesn't know or control, with a domain model that has to stay correct regardless of what's calling it.</p>
+      <p>The scope is deliberately broad — an ERP touches inventory, orders, and accounts, all of which depend on each other — because that's exactly the kind of interlocking complexity I wanted to practice managing.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h2>The architecture decision</h2>
+      <p>I chose Clean Architecture specifically because of that interlocking complexity. With DVLD's Three-Tier setup, business logic still sat close enough to the data layer that the two were easy to tangle. Clean Architecture pushes that separation further by inverting the dependency direction entirely:</p>
+      <div class="code-block">
+<span class="c1">Domain</span>          <span class="c2">→</span> entities &amp; business rules — zero external dependencies<br>
+<span class="c1">Application</span>      <span class="c2">→</span> use cases, interfaces, DTOs — depends only on Domain<br>
+<span class="c1">Infrastructure</span>   <span class="c2">→</span> EF Core, SQL Server — implements Application's interfaces<br>
+<span class="c1">API</span>              <span class="c2">→</span> ASP.NET Core controllers — the thinnest layer of all
+      </div>
+      <p>The point of the inward dependency rule is that <b>Domain never imports anything</b>. If I swapped SQL Server for PostgreSQL tomorrow, or replaced the API layer with a gRPC service, the business rules wouldn't need to change at all — only Infrastructure and API would know the difference.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h2>What's actually built vs. planned</h2>
+      <p>I'm being specific here because the project is mid-build: the four-layer skeleton is in place, along with EF Core's code-first model and the initial migration against SQL Server. What's still ahead is the part that matters most — the actual domain logic for inventory and order management, the use cases that enforce business rules across them, and integration tests that prove the layers actually stay decoupled under real conditions.</p>
+      <p>I'd rather show the architecture honestly at this stage than backfill a feature list that overstates where it is.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h2>What I'm doing next</h2>
+      <p>Three things, roughly in order: finish the inventory module end-to-end as a proof of the architecture, add a unit test suite around the Application layer so the use cases are verifiable independent of the database, and document the emerging API surface with Swagger as endpoints stabilize.</p>
+    </div>
+
+    <div class="tag-row reveal" style="margin-bottom:8px;">
+      <span class="tag">ASP.NET Core</span>
+      <span class="tag">Web API</span>
+      <span class="tag">Entity Framework Core</span>
+      <span class="tag">SQL Server</span>
+      <span class="tag">Clean Architecture</span>
+      <span class="tag">C#</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrap-narrow">
+  <div class="detail-nav">
+    <a href="index.html">← home</a>
+    <a href="project-dvld.html">next: DVLD →</a>
+  </div>
+</div>
+
+<footer>
+  ahmed mohamed faheem — junior .net developer
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
