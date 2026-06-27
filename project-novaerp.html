@@ -34,7 +34,7 @@
     <div class="meta-strip reveal">
       <div class="meta-item"><span>Status</span><span>In development</span></div>
       <div class="meta-item"><span>Role</span><span>Solo developer</span></div>
-      <div class="meta-item"><span>Stack</span><span>ASP.NET Core, EF Core, SQL Server</span></div>
+      <div class="meta-item"><span>Stack</span><span>ASP.NET Core, ADO.NET, T-SQL</span></div>
       <div class="meta-item"><span>Started</span><span>June 2026</span></div>
     </div>
   </div>
@@ -55,15 +55,15 @@
       <div class="code-block">
 <span class="c1">Domain</span>          <span class="c2">→</span> entities &amp; business rules — zero external dependencies<br>
 <span class="c1">Application</span>      <span class="c2">→</span> use cases, interfaces, DTOs — depends only on Domain<br>
-<span class="c1">Infrastructure</span>   <span class="c2">→</span> EF Core, SQL Server — implements Application's interfaces<br>
+<span class="c1">Infrastructure</span>   <span class="c2">→</span> ADO.NET, T-SQL stored procedures — implements Application's interfaces<br>
 <span class="c1">API</span>              <span class="c2">→</span> ASP.NET Core controllers — the thinnest layer of all
       </div>
-      <p>The point of the inward dependency rule is that <b>Domain never imports anything</b>. If I swapped SQL Server for PostgreSQL tomorrow, or replaced the API layer with a gRPC service, the business rules wouldn't need to change at all — only Infrastructure and API would know the difference.</p>
+      <p>The point of the inward dependency rule is that <b>Domain never imports anything</b>. The Application layer only knows about a repository interface — it has no idea that interface is currently implemented with ADO.NET and hand-written T-SQL. If that implementation changed, or the API layer were replaced with something else entirely, the business rules wouldn't need to change at all.</p>
     </div>
 
     <div class="detail-block reveal">
       <h2>What's actually built vs. planned</h2>
-      <p>I'm being specific here because the project is mid-build: the four-layer skeleton is in place, along with EF Core's code-first model and the initial migration against SQL Server. What's still ahead is the part that matters most — the actual domain logic for inventory and order management, the use cases that enforce business rules across them, and integration tests that prove the layers actually stay decoupled under real conditions.</p>
+      <p>I'm being specific here because the project is mid-build: the four-layer skeleton is in place, with the Infrastructure layer wired up to SQL Server through ADO.NET and hand-written T-SQL — the same data-access approach as DVLD, but now sitting behind an interface the Application layer owns rather than being called from a form directly. What's still ahead is the part that matters most — the actual domain logic for inventory and order management, the use cases that enforce business rules across them, and integration tests that prove the layers actually stay decoupled under real conditions.</p>
       <p>I'd rather show the architecture honestly at this stage than backfill a feature list that overstates where it is.</p>
     </div>
 
@@ -75,8 +75,8 @@
     <div class="tag-row reveal" style="margin-bottom:8px;">
       <span class="tag">ASP.NET Core</span>
       <span class="tag">Web API</span>
-      <span class="tag">Entity Framework Core</span>
-      <span class="tag">SQL Server</span>
+      <span class="tag">ADO.NET</span>
+      <span class="tag">T-SQL</span>
       <span class="tag">Clean Architecture</span>
       <span class="tag">C#</span>
     </div>
@@ -93,6 +93,7 @@
 
 <footer>
   ahmed mohamed faheem — junior .net developer
+  <div class="footer-meta">status: <span>available</span> · built without a framework</div>
 </footer>
 
 <script src="script.js"></script>
