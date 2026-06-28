@@ -1,5 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll reveal
+  // ---------- Starfield ----------
+  const canvas = document.getElementById('starfield');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const count = Math.floor((canvas.width * canvas.height) / 9000);
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.4 + 0.3,
+        a: Math.random() * 0.6 + 0.25,
+        tw: Math.random() * 0.015 + 0.003,
+        dir: Math.random() > 0.5 ? 1 : -1,
+      }));
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#fff';
+      for (const s of stars) {
+        if (!reduceMotion) {
+          s.a += s.tw * s.dir;
+          if (s.a > 0.9 || s.a < 0.15) s.dir *= -1;
+        }
+        ctx.globalAlpha = s.a;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      if (!reduceMotion) requestAnimationFrame(draw);
+    }
+    draw();
+  }
+
+  // ---------- Scroll reveal ----------
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -11,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   revealEls.forEach(el => io.observe(el));
 
-  // Nav scroll shadow
+  // ---------- Nav scroll shadow ----------
   const nav = document.querySelector('.nav');
   if (nav) {
     const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
@@ -19,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // Back to top
+  // ---------- Back to top ----------
   const topBtn = document.createElement('button');
   topBtn.className = 'back-to-top';
   topBtn.setAttribute('aria-label', 'Back to top');
@@ -30,59 +72,39 @@ document.addEventListener('DOMContentLoaded', () => {
   onScrollTop();
   window.addEventListener('scroll', onScrollTop, { passive: true });
 
-  // Terminal typing effect (hero only)
-  const term = document.querySelector('.term-body[data-typed]');
-  if (term) {
-    const lines = JSON.parse(term.getAttribute('data-typed'));
-    term.innerHTML = '';
-    let lineIndex = 0;
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function renderStatic() {
-      term.innerHTML = lines.map(l => l.html).join('');
-    }
-
-    if (reduceMotion) {
-      renderStatic();
-      return;
-    }
-
-    function typeLine() {
-      if (lineIndex >= lines.length) return;
-      const line = lines[lineIndex];
-      const row = document.createElement('div');
-      row.className = 'term-line';
-      term.appendChild(row);
-
-      if (line.type === 'cmd') {
-        const prompt = document.createElement('span');
-        prompt.className = 'term-prompt';
-        prompt.textContent = '$';
-        const cmdSpan = document.createElement('span');
-        cmdSpan.className = 'term-cmd';
-        row.appendChild(prompt);
-        row.appendChild(cmdSpan);
-        let i = 0;
-        const text = line.text;
-        const speed = 32;
-        function typeChar() {
-          if (i <= text.length) {
-            cmdSpan.textContent = text.slice(0, i);
-            i++;
-            setTimeout(typeChar, speed);
-          } else {
-            lineIndex++;
-            setTimeout(typeLine, 220);
+  // ---------- Typing effect (hero role line) ----------
+  const typed = document.querySelector('.hero-typed[data-roles]');
+  if (typed) {
+    const roles = JSON.parse(typed.getAttribute('data-roles'));
+    const reduceMotionType = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotionType) {
+      typed.textContent = roles[0];
+    } else {
+      let roleIndex = 0, charIndex = 0, deleting = false;
+      function tick() {
+        const current = roles[roleIndex];
+        if (!deleting) {
+          charIndex++;
+          typed.textContent = current.slice(0, charIndex);
+          if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(tick, 1400);
+            return;
           }
+          setTimeout(tick, 55);
+        } else {
+          charIndex--;
+          typed.textContent = current.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(tick, 300);
+            return;
+          }
+          setTimeout(tick, 28);
         }
-        typeChar();
-      } else {
-        row.outerHTML = line.html;
-        lineIndex++;
-        setTimeout(typeLine, 80);
       }
+      tick();
     }
-    typeLine();
   }
 });

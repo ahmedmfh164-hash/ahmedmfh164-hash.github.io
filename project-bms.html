@@ -6,30 +6,30 @@
 <title>BMS — Bank Management System | Ahmed Faheem</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<canvas id="starfield"></canvas>
+
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-mark"><span class="dot"></span>ahmed.faheem</a>
+    <a href="index.html" class="nav-mark">Mo<span>.</span></a>
     <div class="nav-links">
-      <a href="index.html">~/home</a>
-      <a href="about.html">about</a>
-      <a href="index.html#projects" class="active">projects</a>
-      <a href="contact.html">contact</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">👤 About</a>
+      <a href="index.html#projects" class="active">📁 Projects</a>
+      <a href="contact.html">✉️ Contact</a>
     </div>
   </div>
 </nav>
 
-<header class="detail-head">
+<header class="page-head">
   <div class="wrap-narrow">
     <a class="back-link reveal" href="index.html#projects">← back to projects</a>
-    <div class="detail-title-row reveal">
-      <h1 class="detail-title">BMS</h1>
-      <span class="status-tag status-done">Completed</span>
-    </div>
-    <p class="detail-sub reveal">A console banking application focused on the part every bank interface depends on underneath: a balance and history that stay correct no matter what order things happen in.</p>
+    <span class="proj-status status-done reveal" style="display:inline-block; margin-bottom:18px;">Completed</span>
+    <h1 class="page-title reveal">BMS</h1>
+    <p class="page-sub reveal">A console banking application focused on the part every bank interface depends on underneath: a balance and history that stay correct no matter what order things happen in.</p>
 
     <div class="meta-strip reveal">
       <div class="meta-item"><span>Role</span><span>Solo developer</span></div>
@@ -44,12 +44,12 @@
   <div class="wrap-narrow">
 
     <div class="detail-block reveal">
-      <h2>Why strip away the interface</h2>
+      <h2>WHY STRIP AWAY THE INTERFACE</h2>
       <p>An app, an ATM, a teller window — every banking front end is a different skin on the same requirement: balances and history have to be accurate and recoverable regardless of the order operations happen in. BMS deliberately has no real interface beyond a console, because the point was to get that underlying requirement right without a UI distracting from it.</p>
     </div>
 
     <div class="detail-block reveal">
-      <h2>Modeling accounts as objects, not rows</h2>
+      <h2>MODELING ACCOUNTS AS OBJECTS, NOT ROWS</h2>
       <p>The core of the system is two related objects:</p>
       <div class="schema-grid">
         <div class="schema-table">
@@ -69,7 +69,7 @@
     </div>
 
     <div class="detail-block reveal">
-      <h2>Persistence without reaching for a database</h2>
+      <h2>PERSISTENCE WITHOUT A DATABASE</h2>
       <p>A console-scale project didn't need a database server, so BMS uses file handling instead — but the goal was the same guarantee a real system needs:</p>
       <div class="code-block">
 <span class="c1">On exit</span>   <span class="c2">→</span> serialize accounts &amp; transaction log to file<br>
@@ -79,7 +79,7 @@
     </div>
 
     <div class="detail-block reveal">
-      <h2>What I'd do differently now</h2>
+      <h2>WHAT I'D DO DIFFERENTLY NOW</h2>
       <p>Flat-file storage works for a console demo, but it has no real transaction safety — a write can be interrupted half-done. Swapping it for SQLite would be the natural next step: dependency-light, but with commits that can't be left in a broken state, which a banking system should have even at this scale.</p>
     </div>
 
@@ -103,7 +103,7 @@
 
 <footer>
   ahmed mohamed faheem — junior .net developer
-  <div class="footer-meta">status: <span>available</span> · built without a framework</div>
+  <div class="footer-meta">status: <span>open to work</span> · built without a framework</div>
 </footer>
 
 <script src="script.js"></script>

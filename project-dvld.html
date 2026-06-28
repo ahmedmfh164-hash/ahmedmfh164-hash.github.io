@@ -6,30 +6,30 @@
 <title>DVLD — Driving &amp; Vehicle License Management System | Ahmed Faheem</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<canvas id="starfield"></canvas>
+
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-mark"><span class="dot"></span>ahmed.faheem</a>
+    <a href="index.html" class="nav-mark">Mo<span>.</span></a>
     <div class="nav-links">
-      <a href="index.html">~/home</a>
-      <a href="about.html">about</a>
-      <a href="index.html#projects" class="active">projects</a>
-      <a href="contact.html">contact</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">👤 About</a>
+      <a href="index.html#projects" class="active">📁 Projects</a>
+      <a href="contact.html">✉️ Contact</a>
     </div>
   </div>
 </nav>
 
-<header class="detail-head">
+<header class="page-head">
   <div class="wrap-narrow">
     <a class="back-link reveal" href="index.html#projects">← back to projects</a>
-    <div class="detail-title-row reveal">
-      <h1 class="detail-title">DVLD</h1>
-      <span class="status-tag status-done">Completed</span>
-    </div>
-    <p class="detail-sub reveal">A desktop system for managing drivers, license applications, and driving tests — built to make an approval chain explicit in code rather than just policy.</p>
+    <span class="proj-status status-done reveal" style="display:inline-block; margin-bottom:18px;">Completed</span>
+    <h1 class="page-title reveal">DVLD</h1>
+    <p class="page-sub reveal">A desktop system for managing drivers, license applications, and driving tests — built to make an approval chain explicit in code rather than just policy.</p>
 
     <div class="meta-strip reveal">
       <div class="meta-item"><span>Role</span><span>Solo developer</span></div>
@@ -44,13 +44,13 @@
   <div class="wrap-narrow">
 
     <div class="detail-block reveal">
-      <h2>The problem</h2>
+      <h2>THE PROBLEM</h2>
       <p>A licensing office tracks a lot of interdependent records: who a driver is, which tests they've taken, which licenses they hold, and which staff member is allowed to approve what. In a paper system, or a database with no enforced relationships, it's easy for one of those links to silently break — a license issued without a passed test, an approval granted by someone without the role to grant it.</p>
       <p>DVLD's job is to make that chain of dependencies impossible to skip, not just discouraged.</p>
     </div>
 
     <div class="detail-block reveal">
-      <h2>How the data is structured</h2>
+      <h2>HOW THE DATA IS STRUCTURED</h2>
       <p>That meant starting from the schema, not the screens. Every license traces back through an application to a driver — there's no path to create one without the other:</p>
       <div class="schema-grid">
         <div class="schema-table">
@@ -82,7 +82,7 @@
     </div>
 
     <div class="detail-block reveal">
-      <h2>Keeping logic out of the UI</h2>
+      <h2>KEEPING LOGIC OUT OF THE UI</h2>
       <p>The application follows a Three-Tier structure so that none of those rules end up living inside a button click handler:</p>
       <div class="code-block">
 <span class="c1">Presentation</span>     <span class="c2">→</span> WinForms screens, input handling only<br>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="detail-block reveal">
-      <h2>What I'd do differently now</h2>
+      <h2>WHAT I'D DO DIFFERENTLY NOW</h2>
       <p>Looking back at this after starting NovaERP, the WinForms client is the part I'd change first — it ties the business rules to a desktop runtime they don't need to depend on. Re-exposing this same domain as a Web API would be a natural next pass, and it's part of why NovaERP starts from that assumption instead.</p>
     </div>
 
@@ -118,7 +118,7 @@
 
 <footer>
   ahmed mohamed faheem — junior .net developer
-  <div class="footer-meta">status: <span>available</span> · built without a framework</div>
+  <div class="footer-meta">status: <span>open to work</span> · built without a framework</div>
 </footer>
 
 <script src="script.js"></script>

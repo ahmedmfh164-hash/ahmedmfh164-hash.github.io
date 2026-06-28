@@ -6,109 +6,113 @@
 <title>Ahmed Mohamed Faheem — .NET Developer</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<canvas id="starfield"></canvas>
+
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-mark"><span class="dot"></span>ahmed.faheem</a>
+    <a href="index.html" class="nav-mark">Mo<span>.</span></a>
     <div class="nav-links">
-      <a href="index.html" class="active">~/home</a>
-      <a href="about.html">about</a>
-      <a href="index.html#projects">projects</a>
-      <a href="contact.html">contact</a>
+      <a href="index.html" class="active">🏠 Home</a>
+      <a href="about.html">👤 About</a>
+      <a href="index.html#projects">📁 Projects</a>
+      <a href="contact.html">✉️ Contact</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="hero-glow"></div>
   <div class="wrap">
-    <div class="term reveal">
-      <div class="term-bar">
-        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
-        <span class="term-title">ahmed@portfolio — zsh</span>
-      </div>
-      <div class="term-body" data-typed='[
-        {"type":"cmd","text":"whoami"},
-        {"type":"static","html":"<div class=\"term-out\">→ <b>Ahmed Mohamed Faheem</b> — Junior .NET Developer<span class=\"cursor\"></span></div>"},
-        {"type":"cmd","text":"cat status.txt"},
-        {"type":"static","html":"<div class=\"term-out\">→ Computer Science student, building backend systems with C#, SQL Server &amp; ASP.NET Core. Open to junior roles.<span class=\"cursor\"></span></div>"}
-      ]'></div>
+    <div class="hero-greet reveal"><span class="wave">👋</span> Hi there!</div>
+    <h1 class="hero-name reveal">I'M <span class="accent-word">AHMED MOHAMED FAHEEM</span></h1>
+    <div class="hero-type-row reveal">
+      <span class="hero-typed" data-roles='["Junior .NET Developer","Backend Developer","C# / SQL Server"]'></span><span class="cursor"></span>
     </div>
-    <div class="hero-actions">
+    <p class="hero-sub reveal">Computer Science student building strong, clean backend systems with C#, SQL Server &amp; ASP.NET Core. Currently shipping NovaERP — an ERP backend on Clean Architecture.</p>
+    <div class="hero-actions reveal">
       <a class="btn btn-solid" href="#projects">View Projects</a>
       <a class="btn btn-line" href="contact.html">Contact Me</a>
     </div>
   </div>
 </header>
 
-<section id="skills">
+<section id="projects">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">01</span>
-      <span class="section-title">Stack</span>
-      <span class="section-rule"></span>
+      <div class="section-title">FEATURED <span class="accent-word">PROJECTS</span></div>
+      <div class="section-sub">A snapshot of systems focused on clean architecture and reliable backend workflows.</div>
     </div>
-    <div class="skills-grid reveal">
-      <div class="skill-cell"><div class="skill-cell-label">Languages</div><div class="skill-cell-value">C#, C++, SQL</div></div>
-      <div class="skill-cell"><div class="skill-cell-label">Backend</div><div class="skill-cell-value">ASP.NET Core, .NET Framework</div></div>
-      <div class="skill-cell"><div class="skill-cell-label">Data</div><div class="skill-cell-value">SQL Server, T-SQL, ADO.NET</div></div>
-      <div class="skill-cell"><div class="skill-cell-label">Architecture</div><div class="skill-cell-value">Clean Architecture, Three-Tier, OOP</div></div>
-      <div class="skill-cell"><div class="skill-cell-label">UI</div><div class="skill-cell-value">WinForms</div></div>
-      <div class="skill-cell"><div class="skill-cell-label">Tools</div><div class="skill-cell-value">Visual Studio, SSMS, Git</div></div>
+
+    <div class="card-grid reveal">
+      <article class="proj-card">
+        <span class="proj-status status-progress">In Progress</span>
+        <div class="proj-card-title">NovaERP — Enterprise Resource Planning</div>
+        <p class="proj-card-desc">An ERP backend built on ASP.NET Core Web API, structured around Clean Architecture, with data access through ADO.NET and hand-written T-SQL.</p>
+        <div class="proj-card-tags"><span>ASP.NET Core</span><span>ADO.NET</span><span>T-SQL</span><span>Clean Architecture</span></div>
+        <div class="proj-card-links">
+          <a class="proj-btn" href="project-novaerp.html">📖 Case Study</a>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <span class="proj-status status-done">Completed</span>
+        <div class="proj-card-title">DVLD — Driving &amp; Vehicle License Department</div>
+        <p class="proj-card-desc">Comprehensive desktop system for the full driving-license lifecycle: applications, multi-stage tests, validation, renewals, and role-based authorization.</p>
+        <div class="proj-card-tags"><span>C#</span><span>WinForms</span><span>SQL Server</span><span>ADO.NET</span></div>
+        <div class="proj-card-links">
+          <a class="proj-btn" href="https://github.com/ahmedmfh164-hash/Driving-And-Vehicle-License-Management" target="_blank" rel="noopener">🔗 GitHub</a>
+          <a class="proj-btn" href="project-dvld.html">📖 Case Study</a>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <span class="proj-status status-done">Completed</span>
+        <div class="proj-card-title">BMS — Bank Management System</div>
+        <p class="proj-card-desc">Console-based banking application with modular OOP architecture, file-based persistence, and a full transaction history log.</p>
+        <div class="proj-card-tags"><span>C++</span><span>OOP</span><span>File Handling</span></div>
+        <div class="proj-card-links">
+          <a class="proj-btn" href="https://github.com/ahmedmfh164-hash/Bank-Management-System-oop" target="_blank" rel="noopener">🔗 GitHub</a>
+          <a class="proj-btn" href="project-bms.html">📖 Case Study</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="projects">
+<section id="skills">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">02</span>
-      <span class="section-title">Projects</span>
-      <span class="section-rule"></span>
+      <div class="section-title">BACKEND <span class="accent-word">SKILLSET</span></div>
     </div>
+    <div class="pill-grid reveal">
+      <span class="pill"><span class="ic">🔷</span> C#</span>
+      <span class="pill"><span class="ic">🌐</span> ASP.NET Core</span>
+      <span class="pill"><span class="ic">🗄️</span> SQL Server</span>
+      <span class="pill"><span class="ic">⚙️</span> ADO.NET</span>
+      <span class="pill"><span class="ic">📜</span> T-SQL</span>
+      <span class="pill"><span class="ic">🧱</span> Clean Architecture</span>
+      <span class="pill"><span class="ic">🔤</span> C++</span>
+    </div>
+    <div class="pill-row-label reveal">Tools I use daily</div>
+    <div class="pill-grid reveal">
+      <span class="pill"><span class="ic">🛠️</span> Visual Studio</span>
+      <span class="pill"><span class="ic">📘</span> SSMS</span>
+      <span class="pill"><span class="ic">🔀</span> Git &amp; GitHub</span>
+      <span class="pill"><span class="ic">📮</span> Postman</span>
+    </div>
+  </div>
+</section>
 
-    <div class="work-list reveal">
-      <div class="work-row">
-        <div class="work-row-top">
-          <div class="work-row-title">
-            <a href="project-novaerp.html">NovaERP — Enterprise Resource Planning System</a>
-            <span class="status-tag status-progress">In Progress</span>
-          </div>
-          <div class="work-row-date">Jun 2026 — Present</div>
-        </div>
-        <p class="work-row-desc">An ERP backend built on ASP.NET Core Web API and T-SQL, structured around Clean Architecture for managing core business operations at scale.</p>
-        <div class="work-row-tags"><span>ASP.NET Core</span><span>T-SQL</span><span>SQL Server</span><span>Clean Architecture</span></div>
-        <a class="work-row-link" href="project-novaerp.html">Read case study →</a>
-      </div>
-
-      <div class="work-row">
-        <div class="work-row-top">
-          <div class="work-row-title">
-            <a href="project-dvld.html">DVLD — License Management System</a>
-            <span class="status-tag status-done">Completed</span>
-          </div>
-          <div class="work-row-date">Mar — Apr 2026</div>
-        </div>
-        <p class="work-row-desc">A desktop system managing drivers, applicants, and tests end-to-end, with role-based authorization on a Three-Tier architecture.</p>
-        <div class="work-row-tags"><span>C#</span><span>WinForms</span><span>SQL Server</span><span>ADO.NET</span></div>
-        <a class="work-row-link" href="project-dvld.html">Read case study →</a>
-      </div>
-
-      <div class="work-row">
-        <div class="work-row-top">
-          <div class="work-row-title">
-            <a href="project-bms.html">BMS — Bank Management System</a>
-            <span class="status-tag status-done">Completed</span>
-          </div>
-          <div class="work-row-date">May — Jun 2026</div>
-        </div>
-        <p class="work-row-desc">A console-based banking application modeling accounts and transactions with core OOP design and file-based persistence.</p>
-        <div class="work-row-tags"><span>C++</span><span>OOP</span><span>File Handling</span></div>
-        <a class="work-row-link" href="project-bms.html">Read case study →</a>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-title">DAYS I <span class="accent-word">CODE</span></div>
+    </div>
+    <div class="contrib-wrap reveal">
+      <div class="contrib-grid" id="contribGrid"></div>
     </div>
   </div>
 </section>
@@ -116,7 +120,7 @@
 <section>
   <div class="wrap">
     <div class="cta-band reveal">
-      <h2>Looking for a junior .NET developer?</h2>
+      <h2>LOOKING FOR A JUNIOR .NET DEVELOPER?</h2>
       <p>I'm actively looking for a junior or entry-level backend / .NET role where I can keep building on this foundation.</p>
       <a class="btn btn-solid" href="contact.html">Get in Touch</a>
     </div>
@@ -125,9 +129,31 @@
 
 <footer>
   ahmed mohamed faheem — junior .net developer
-  <div class="footer-meta">status: <span>available</span> · built without a framework</div>
+  <div class="footer-meta">status: <span>open to work</span> · built without a framework</div>
 </footer>
 
 <script src="script.js"></script>
+<script>
+  // Generate a GitHub-style contribution grid (decorative, representing consistent practice)
+  (function(){
+    const grid = document.getElementById('contribGrid');
+    if(!grid) return;
+    const weeks = 26;
+    const days = 7;
+    let html = '';
+    for(let d=0; d<days; d++){
+      for(let w=0; w<weeks; w++){
+        const r = Math.random();
+        let cls = 'contrib-cell';
+        if (r > 0.93) cls += ' l4';
+        else if (r > 0.8) cls += ' l3';
+        else if (r > 0.6) cls += ' l2';
+        else if (r > 0.35) cls += ' l1';
+        html += `<div class="${cls}"></div>`;
+      }
+    }
+    grid.innerHTML = html;
+  })();
+</script>
 </body>
 </html>

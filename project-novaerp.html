@@ -6,30 +6,30 @@
 <title>NovaERP — Enterprise Resource Planning System | Ahmed Faheem</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<canvas id="starfield"></canvas>
+
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-mark"><span class="dot"></span>ahmed.faheem</a>
+    <a href="index.html" class="nav-mark">Mo<span>.</span></a>
     <div class="nav-links">
-      <a href="index.html">~/home</a>
-      <a href="about.html">about</a>
-      <a href="index.html#projects" class="active">projects</a>
-      <a href="contact.html">contact</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">👤 About</a>
+      <a href="index.html#projects" class="active">📁 Projects</a>
+      <a href="contact.html">✉️ Contact</a>
     </div>
   </div>
 </nav>
 
-<header class="detail-head">
+<header class="page-head">
   <div class="wrap-narrow">
     <a class="back-link reveal" href="index.html#projects">← back to projects</a>
-    <div class="detail-title-row reveal">
-      <h1 class="detail-title">NovaERP</h1>
-      <span class="status-tag status-progress">In Progress</span>
-    </div>
-    <p class="detail-sub reveal">An ERP backend built on ASP.NET Core, structured around Clean Architecture — my step from desktop tools toward enterprise-style backend systems.</p>
+    <span class="proj-status status-progress reveal" style="display:inline-block; margin-bottom:18px;">In Progress</span>
+    <h1 class="page-title reveal">NovaERP</h1>
+    <p class="page-sub reveal">An ERP backend built on ASP.NET Core, structured around Clean Architecture — my step from desktop tools toward enterprise-style backend systems.</p>
 
     <div class="meta-strip reveal">
       <div class="meta-item"><span>Status</span><span>In development</span></div>
@@ -44,13 +44,13 @@
   <div class="wrap-narrow">
 
     <div class="detail-block reveal">
-      <h2>Why this project</h2>
+      <h2>WHY THIS PROJECT</h2>
       <p>DVLD and BMS taught me the fundamentals — schemas, validation, OOP — but both were desktop-bound: a WinForms client or a console session talking directly to its own data layer. That doesn't reflect how most production backends actually work. NovaERP is my attempt to close that gap: a system exposed as a web API, consumed by clients it doesn't know or control, with a domain model that has to stay correct regardless of what's calling it.</p>
       <p>The scope is deliberately broad — an ERP touches inventory, orders, and accounts, all of which depend on each other — because that's exactly the kind of interlocking complexity I wanted to practice managing.</p>
     </div>
 
     <div class="detail-block reveal">
-      <h2>The architecture decision</h2>
+      <h2>THE ARCHITECTURE DECISION</h2>
       <p>I chose Clean Architecture specifically because of that interlocking complexity. With DVLD's Three-Tier setup, business logic still sat close enough to the data layer that the two were easy to tangle. Clean Architecture pushes that separation further by inverting the dependency direction entirely:</p>
       <div class="code-block">
 <span class="c1">Domain</span>          <span class="c2">→</span> entities &amp; business rules — zero external dependencies<br>
@@ -62,13 +62,13 @@
     </div>
 
     <div class="detail-block reveal">
-      <h2>What's actually built vs. planned</h2>
+      <h2>WHAT'S ACTUALLY BUILT VS. PLANNED</h2>
       <p>I'm being specific here because the project is mid-build: the four-layer skeleton is in place, with the Infrastructure layer wired up to SQL Server through ADO.NET and hand-written T-SQL — the same data-access approach as DVLD, but now sitting behind an interface the Application layer owns rather than being called from a form directly. What's still ahead is the part that matters most — the actual domain logic for inventory and order management, the use cases that enforce business rules across them, and integration tests that prove the layers actually stay decoupled under real conditions.</p>
       <p>I'd rather show the architecture honestly at this stage than backfill a feature list that overstates where it is.</p>
     </div>
 
     <div class="detail-block reveal">
-      <h2>What I'm doing next</h2>
+      <h2>WHAT I'M DOING NEXT</h2>
       <p>Three things, roughly in order: finish the inventory module end-to-end as a proof of the architecture, add a unit test suite around the Application layer so the use cases are verifiable independent of the database, and document the emerging API surface with Swagger as endpoints stabilize.</p>
     </div>
 
@@ -93,7 +93,7 @@
 
 <footer>
   ahmed mohamed faheem — junior .net developer
-  <div class="footer-meta">status: <span>available</span> · built without a framework</div>
+  <div class="footer-meta">status: <span>open to work</span> · built without a framework</div>
 </footer>
 
 <script src="script.js"></script>

@@ -6,30 +6,28 @@
 <title>About — Ahmed Faheem</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<canvas id="starfield"></canvas>
+
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-mark"><span class="dot"></span>ahmed.faheem</a>
+    <a href="index.html" class="nav-mark">Mo<span>.</span></a>
     <div class="nav-links">
-      <a href="index.html">~/home</a>
-      <a href="about.html" class="active">about</a>
-      <a href="index.html#projects">projects</a>
-      <a href="contact.html">contact</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html" class="active">👤 About</a>
+      <a href="index.html#projects">📁 Projects</a>
+      <a href="contact.html">✉️ Contact</a>
     </div>
   </div>
 </nav>
 
-<header class="detail-head">
+<header class="page-head">
   <div class="wrap">
-    <!-- AVATAR_SLOT: replace .avatar-fallback below with
-         <img class="avatar" src="avatar.jpg" alt="Ahmed Mohamed Faheem">
-         once a photo is provided -->
-    <div class="avatar-fallback reveal">AF</div>
-    <h1 class="detail-title reveal" style="margin-bottom:14px;">About</h1>
-    <p class="detail-sub reveal">Computer Science student, junior .NET developer, and someone who'd rather get the data model right before touching the UI.</p>
+    <div class="avatar-fallback reveal" style="margin:0 auto 24px;">AF</div>
+    <h1 class="page-title reveal">LET ME <span class="accent-word" style="color:var(--accent);">INTRODUCE</span> MYSELF</h1>
   </div>
 </header>
 
@@ -37,15 +35,30 @@
   <div class="wrap">
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>I'm a Computer Science student at East Port Said National University, currently focused on backend and .NET development. My projects so far were all built solo, end-to-end — schema first, then the layers that enforce the rules on top of it.</p>
-        <p>That habit — <b>entities first, relationships second, screens last</b> — is the thread running through how I approach every project. Before opening a form designer or writing a controller, I want to know: what objects exist, how do they connect, and what has to stay true no matter what calls into the system.</p>
+        <p>I'm Ahmed Mohamed Faheem, a Computer Science student and junior .NET developer who builds <b>strong, clean backend systems</b>. I'm currently focused on C#, ASP.NET Core, SQL Server, and clean architecture, with an emphasis on reliable data access and maintainable design.</p>
+        <p>My key areas of interest include <b>relational schema design, layered architecture, and backend validation logic</b>. Both projects in my portfolio were built solo, end-to-end — schema first, then the layers that enforce the rules on top of it.</p>
         <p>I'm looking for a junior or entry-level backend / .NET role where I can keep building on that foundation alongside people who've done it longer than I have.</p>
+        <div class="quote-block">
+          "Small steps every day create massive results over time."
+          <span>— Ahmed</span>
+        </div>
       </div>
-      <div class="skills-grid" style="grid-template-columns:1fr; align-self:start;">
-        <div class="skill-cell"><div class="skill-cell-label">Languages</div><div class="skill-cell-value">C#, C++, SQL</div></div>
-        <div class="skill-cell"><div class="skill-cell-label">Backend</div><div class="skill-cell-value">ASP.NET Core, .NET Framework</div></div>
-        <div class="skill-cell"><div class="skill-cell-label">Data</div><div class="skill-cell-value">SQL Server, T-SQL, ADO.NET</div></div>
-        <div class="skill-cell"><div class="skill-cell-label">Tools</div><div class="skill-cell-value">Visual Studio, SSMS, Git</div></div>
+      <div>
+        <div class="pill-row-label" style="margin-top:0; text-align:left;">Quick facts</div>
+        <div class="timeline" style="border-top:1px solid var(--border);">
+          <div class="timeline-item" style="grid-template-columns:1fr;">
+            <div class="timeline-body"><b>Location</b><span>Egypt</span></div>
+          </div>
+          <div class="timeline-item" style="grid-template-columns:1fr;">
+            <div class="timeline-body"><b>Focus</b><span>Backend &amp; .NET Development</span></div>
+          </div>
+          <div class="timeline-item" style="grid-template-columns:1fr;">
+            <div class="timeline-body"><b>Education</b><span>BSc Computer Science, 2025–2029</span></div>
+          </div>
+          <div class="timeline-item" style="grid-template-columns:1fr; border-bottom:none;">
+            <div class="timeline-body"><b>GPA</b><span>3.14 / 4.0</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -54,9 +67,7 @@
 <section>
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">—</span>
-      <span class="section-title">Timeline</span>
-      <span class="section-rule"></span>
+      <div class="section-title">MY <span class="accent-word">TIMELINE</span></div>
     </div>
     <div class="timeline reveal">
       <div class="timeline-item">
@@ -94,7 +105,7 @@
 <section>
   <div class="wrap">
     <div class="cta-band reveal">
-      <h2>Want the full picture?</h2>
+      <h2>WANT THE FULL PICTURE?</h2>
       <p>My resume covers this in CV form, or you can reach out directly.</p>
       <a class="btn btn-solid" href="contact.html">Get in Touch</a>
     </div>
@@ -103,7 +114,7 @@
 
 <footer>
   ahmed mohamed faheem — junior .net developer
-  <div class="footer-meta">status: <span>available</span> · built without a framework</div>
+  <div class="footer-meta">status: <span>open to work</span> · built without a framework</div>
 </footer>
 
 <script src="script.js"></script>
